@@ -1,0 +1,261 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  min-height: 100vh; /* Use 100vh to prevent excessive height */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("/uploads/images/banner-slide/top-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-top: 100px; /* Add padding at the top to create space below the navbar */
+  overflow: auto; /* Allow scrolling for content overflow */
+}
+
+/* Overlay to make the background less visible */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+  z-index: 1;
+}
+
+.form3 {
+  background-color: rgba(255, 255, 255, 0.4); /* Slightly transparent white background */
+  padding: 20px; 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Set a maximum width for the form */
+  position: relative;
+  z-index: 2; /* Ensure the form is above the overlay */
+  margin-top: 20px; /* Add margin at the top to create space below the navbar */
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 95%; /* Ensure full width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-check {
+  margin-bottom: 10px;
+}
+
+.form-check label {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+select {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 95%; /* Ensure full width like the other inputs */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  appearance: none; /* Removes default styling for select on some browsers */
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #007bff; /* Highlight the border on focus */
+  outline: none; /* Remove default outline */
+}
+
+option {
+  font-size: 16px;
+  padding: 10px;
+}
+
+/* Ensure the select element is styled consistently with input fields */
+label[for="role"] {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Styling the dropdown arrow for consistency */
+select {
+  -webkit-appearance: none; /* Remove the default dropdown arrow on WebKit browsers */
+  -moz-appearance: none; /* Remove the default dropdown arrow on Firefox */
+  appearance: none; /* Ensure no default dropdown arrow */
+  background-image: url("/uploads/images/arrow.png"); /* Custom dropdown arrow image */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background to blend with the page */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none; /* Remove background image to match the body style */
+}
+
+.header .navbar-brand img {
+  width: 3rem;
+}
+
+.header .navbar-nav {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  list-style: none;
+}
+
+.header .navbar-nav .nav-link {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.5rem 2rem;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  
+}
+
+.header .navbar-nav .nav-link:hover,
+.header .navbar-nav .nav-link.active {
+  color: #ff9800; /* Hover and active color */
+}
+
+.header .header_right {
+  display: flex;
+  align-items: center;
+}
+
+.header .header_right .nav-item {
+  margin-left: 1rem;
+}
+
+.header .header_right .auth-links .nav-link {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+.auth-links {
+  display: flex;
+  gap: 4rem; /* Space between login and signup buttons */
+  align-items: center;
+  margin-right: 5%;
+}
+.auth-links a {
+  color: #fff;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.header .header_right .nav-link:hover {
+  color: #ff9800;
+}
+
+.header .header_right form {
+  margin-bottom: 0;
+}
+
+.header .header_right form button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header .header_right form button:hover {
+  background-color: #0056b3;
+  
+}
+
+/* Adjustments to ensure proper spacing with the body */
+body {
+  padding-top: 80px; /* Ensure the navbar doesn't overlap content */
+}
+
+@media (max-width: 768px) {
+  .header .navbar-nav {
+    display: block;
+    text-align: center;
+  }
+
+  .header .navbar-toggler {
+    display: block;
+    font-size: 2rem;
+  }
+
+  .header .header_right {
+    display: block;
+    text-align: right;
+  }
+}
+
+
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+  .form3 {
+    width: 90%;
+  }
+}

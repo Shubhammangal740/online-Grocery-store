@@ -1,0 +1,76 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/CSS/addCourse.css" />
+<link rel="stylesheet" href="/CSS/style.css" />
+<style>
+  body {
+    min-height: 100vh;
+  }
+  
+</style>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <div class="container2">
+    <h1>Add New Food/Vegetable</h1>
+    <form
+      action="/<% if (editing) { %>update-food<% } else { %>add-food<% } %>"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          value="<% if (editing) { %><%= food.name %><% } %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="5" required>
+<% if (editing) { %><%= food.description %><% } %></textarea
+        >
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+          <option value="Fruit" <% if (editing && food.category === 'Fruit') { %>selected<% } %>>Fruit</option>
+          <option value="Vegetable" <% if (editing && food.category === 'Vegetable') { %>selected<% } %>>Vegetable</option>
+          <option value="Grain" <% if (editing && food.category === 'Grain') { %>selected<% } %>>Grain</option>
+          <option value="Protein" <% if (editing && food.category === 'Protein') { %>selected<% } %>>Protein</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="price">Price per unit (e.g., per kg)</label>
+        <input
+          type="number"
+          step="0.01"
+          id="price"
+          name="price"
+          required
+          value="<% if (editing) { %><%= food.price %><% } %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="quantity">Available Quantity</label>
+        <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          required
+          value="<% if (editing) { %><%= food.quantity %><% } %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="image">Food Image</label>
+        <input type="file" id="image" name="image"/>
+      </div>
+      <% if (editing) { %>
+        <input type="hidden" value="<%= food._id %>" name="foodId">
+      <% } %>
+      <button type="submit" class="btn"><% if (editing) { %>Update Item<% } else { %>Add Item<% } %></button>
+    </form>
+  </div>
+  <script src="/main.js" charset="utf-8"></script>
+</body>

@@ -1,0 +1,110 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/CSS/addCourse.css" />
+<link rel="stylesheet" href="/CSS/style.css" />
+
+<style>
+  .container {
+    margin-left: 3%;
+    z-index: 1000;
+  }
+
+  body {
+    margin-top: 2%;
+  }
+
+  .listfood-format button .crossIcon {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    margin-right: 60%;
+    margin-top: -85%;
+  }
+
+  .listfood-format a {
+    color: rgb(47, 4, 236);
+    margin-left: 15px;
+  }
+
+  .listfood-format-main {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+    margin-left: 2%;
+  }
+
+  .listfood-format-main p,
+  .listfood-format-main img {
+    margin: 2%;
+    padding: 0;
+  }
+
+  .listfood-allfoods hr {
+    border: 1px solid #ccc;
+  }
+
+  .listfood-format .listfood-food-icon {
+    width: 100px;
+    height: 100px;
+    margin-top: -20%;
+  }
+  .listfood-format {
+    margin-top: 4%;
+  }
+  .listfood-format .Edit {
+    font-size: 2rem;
+  }
+</style>
+
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <div class="list-food">
+    <h1>All Foods/Vegetables</h1>
+    <div class="listfood-format-main">
+      <p>Food Image</p>
+      <p>Name</p>
+      <p>Description</p>
+      <p>Category</p>
+      <p>Price (per unit)</p>
+      <p>Quantity Available</p>
+      <p>Edit</p>
+      <p>Remove</p>
+    </div>
+    <div class="listfood-allfoods">
+      <hr />
+      <!-- Iterate over the food array and display each food item -->
+      <% for (let food of foods) { %>
+      <div class="listfood-format-main listfood-format">
+        <img
+          src="<%= food.imageUrl %>"
+          alt="Food Image"
+          class="listfood-food-icon"
+        />
+        <p><%= food.name %></p>
+        <p><%= food.description %></p>
+        <p><%= food.category %></p>
+        <p><%= food.price %> per unit</p>
+        <p><%= food.quantity %></p>
+        <a class="Edit" href="/update-food/<%= food._id %>?edit=true">Edit</a>
+        <!-- Create a form to handle the POST request for deleting a food item -->
+        <form
+          action="/delete-food/<%= food._id %>"
+          method="POST"
+          style="display: inline"
+        >
+          <button
+            type="submit"
+            style="border: none; background: none; padding: 0"
+          >
+            <img
+              class="crossIcon"
+              src="/uploads/images/cross_icon.png"
+              alt="Remove"
+            />
+          </button>
+        </form>
+      </div>
+      <hr />
+      <% }; %>
+    </div>
+  </div>
+</body>
